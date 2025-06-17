@@ -2,6 +2,8 @@ package com.femcoders.monster_shop.controllers;
 
 import com.femcoders.monster_shop.models.Product;
 import com.femcoders.monster_shop.services.ProductService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,13 +17,15 @@ public class ProductController {
     }
 
     @GetMapping("/api/products")
-    public List<Product> getAllProducts() {
-        return productService.getAllProducts();
+    public ResponseEntity<List<Product>> getAllProducts() {
+        List<Product> products = productService.getAllProducts();
+        return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
     }
 
     @PostMapping("/api/products")
-    public void addProduct(@RequestBody Product newProduct){
-        productService.addProduct(newProduct);
+    public ResponseEntity<Product> addProduct(@RequestBody Product newProduct) {
+        Product createdProduct = productService.addProduct(newProduct);
+        return new ResponseEntity<Product>(createdProduct, HttpStatus.CREATED);
     }
 
 
