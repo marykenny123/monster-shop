@@ -19,10 +19,10 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-//    @PostMapping("/api/products")
-//    public void addProduct(@RequestBody Product newProduct){
-//        productService.addProduct(newProduct);
-//    }
+    @PostMapping("/api/products")
+    public void addProduct(@RequestBody Product newProduct){
+        productService.addProduct(newProduct);
+    }
 
 
 }

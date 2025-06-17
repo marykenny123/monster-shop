@@ -8,17 +8,17 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String name;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private double price;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String imageUrl;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private double rating;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private int reviewCount;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private boolean featured;
 
 
