@@ -2,9 +2,7 @@ package com.femcoders.monster_shop.controllers;
 
 import com.femcoders.monster_shop.models.Product;
 import com.femcoders.monster_shop.services.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,5 +18,11 @@ public class ProductController {
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
+
+    @PostMapping("/api/products")
+    public void addProduct(@RequestBody Product newProduct){
+        productService.addProduct(newProduct);
+    }
+
 
 }
