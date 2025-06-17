@@ -20,7 +20,6 @@ public class ProductService {
 
     public Product addProduct(Product newProduct) {
         return productRepository.save(newProduct);
-
     }
 
 }
