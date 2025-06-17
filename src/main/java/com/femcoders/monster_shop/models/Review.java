@@ -1,0 +1,52 @@
+package com.femcoders.monster_shop.models;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "reviews")
+public class Review {
+    @id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(nullable = false)
+    private String username;
+    @Column(nullable = false)
+    private double rating;
+    @Column(nullable = false)
+    private String body;
+
+    public Review() {
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public double getRating() {
+        return this.rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public String getBody() {
+        return this.body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+}
