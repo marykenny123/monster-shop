@@ -2,7 +2,6 @@ package com.femcoders.monster_shop.controllers;
 
 import com.femcoders.monster_shop.models.Product;
 import com.femcoders.monster_shop.services.ProductService;
-import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,9 +34,8 @@ public class ProductController {
         Optional<Product> requestedProduct = productService.getProductById(id);
         if (requestedProduct.isPresent()) {
             return new ResponseEntity<>(requestedProduct.get(), HttpStatus.OK);
-        } else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PutMapping("/api/products/{id}")
@@ -47,6 +45,16 @@ public class ProductController {
             return new ResponseEntity<Product>(HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @DeleteMapping("/api/products/{id}")
+    public ResponseEntity<Product> deleteProduct(@PathVariable Long id) {
+        boolean wasDeleted = productService.deleteProduct(id);
+        if (!wasDeleted) {
+            return new ResponseEntity<Product>(HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.status(HttpStatus.OK).build();
+
     }
 
 

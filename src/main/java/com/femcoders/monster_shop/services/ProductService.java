@@ -40,12 +40,17 @@ public class ProductService {
             newProductDetails.setFeatured(productToUpdate.isFeatured());
             productRepository.save(newProductDetails);
             return true;
-        } else {
-            return false;
         }
-
+        return false;
     }
 
+    public boolean deleteProduct (Long id) {
+        if (!productRepository.existsById(id)) {
+            return false;
+        }
+        productRepository.deleteById(id);
+        return true;
+    }
 
 
 }
