@@ -18,8 +18,9 @@ public class Review {
     //@Column(nullable = false)
     private String body;
 
-    @OneToMany(mappedBy = "review")
-    private List<Product> products = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     public Review() {
     }
