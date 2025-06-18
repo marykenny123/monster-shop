@@ -8,18 +8,18 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String username;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private double rating;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String body;
 
     public Review() {
     }
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Long id) {
@@ -27,7 +27,7 @@ public class Review {
     }
 
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
     public void setUsername(String username) {
@@ -35,7 +35,7 @@ public class Review {
     }
 
     public double getRating() {
-        return this.rating;
+        return rating;
     }
 
     public void setRating(double rating) {
@@ -43,7 +43,7 @@ public class Review {
     }
 
     public String getBody() {
-        return this.body;
+        return body;
     }
 
     public void setBody(String body) {
