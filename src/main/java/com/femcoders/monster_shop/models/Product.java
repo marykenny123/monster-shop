@@ -21,6 +21,10 @@ public class Product {
     //@Column(nullable = false)
     private boolean featured;
 
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Review review;
+
 
     public Product() {
     }
