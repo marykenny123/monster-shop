@@ -2,6 +2,9 @@ package com.femcoders.monster_shop.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "reviews")
 public class Review {
@@ -14,6 +17,9 @@ public class Review {
     private double rating;
     //@Column(nullable = false)
     private String body;
+
+    @OneToMany(mappedBy = "review")
+    private List<Product> products = new ArrayList<>();
 
     public Review() {
     }
