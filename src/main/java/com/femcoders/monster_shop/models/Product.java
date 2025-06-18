@@ -2,6 +2,9 @@ package com.femcoders.monster_shop.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="products")
 public class Product {
@@ -21,9 +24,9 @@ public class Product {
     //@Column(nullable = false)
     private boolean featured;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Review review;
+    @OneToMany(mappedBy = "product")
+    private List<Review> reviews = new ArrayList<>();
+
 
 
     public Product() {
