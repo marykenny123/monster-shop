@@ -27,13 +27,8 @@ class ReviewController {
     public ResponseEntity<List<Review>> getReviewsByProductId(@PathVariable Long productId) {
         List<Review> reviews = reviewService.getReviewsByProductId(productId);
         System.out.println("Product ID received from postman: " + productId);
-//        if (reviews.isEmpty()) {
-//            System.out.println("in controller in if statement after null check for req review list but before return");
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
         System.out.println("in controller after if not fulfilled just before return outside if, should print when optional has reviews");
         return new ResponseEntity<>(reviews, HttpStatus.OK);
-
     }
 
 }
