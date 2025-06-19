@@ -21,13 +21,20 @@ public class ReviewService {
         return reviewRepository.save(newReview);
     }
 
-    public boolean showReviewsByProductId(Long productId) {
-        List <Review> reviews = reviewRepository.findByProductId(productId);
-        boolean reviewExists;
-        if (!reviews.isEmpty()) {
-            return reviewExists = false;
-        }
-        return true;
+//    public boolean showReviewsByProductId(Long productId) {
+//        List <Review> reviews = reviewRepository.findByProductId(productId);
+//        boolean reviewExists;
+//        if (!reviews.isEmpty()) {
+//            return reviewExists = false;
+//        }
+//        return true;
+//    }
+
+    public Optional <List<Review>> getReviewsByProductId(Long productId) {
+        System.out.println("inside service before asignation");
+        Optional<List<Review>> optionalReview = reviewRepository.findByProductId(productId);
+        System.out.println("inside service after asignation before return");
+        return optionalReview;
     }
 
 }
