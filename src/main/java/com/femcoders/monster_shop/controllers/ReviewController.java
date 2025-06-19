@@ -46,12 +46,4 @@ class ReviewController {
 
     }
 
-    // codigo del metodo en service:
-//    public Optional<Review> getReviewsByProductId(Long productId) {
-//        Optional<Product> optionalReview = reviewRepository.findById(productId);
-//        return optionalReview;
-//    }
-
-
-
 }
