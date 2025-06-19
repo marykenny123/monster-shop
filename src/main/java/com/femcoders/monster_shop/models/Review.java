@@ -11,11 +11,11 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String username;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private double rating;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String body;
 
     @ManyToOne
@@ -23,6 +23,12 @@ public class Review {
     private Product product;
 
     public Review() {
+    }
+
+    public Review(String username, double rating, String body) {
+        this.username = username;
+        this.rating = rating;
+        this.body = body;
     }
 
     public Long getId() {

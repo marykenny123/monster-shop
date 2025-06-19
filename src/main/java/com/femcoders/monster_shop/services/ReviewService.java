@@ -1,6 +1,7 @@
 package com.femcoders.monster_shop.services;
 
 
+import com.femcoders.monster_shop.dtos.ReviewRequest;
 import com.femcoders.monster_shop.models.Product;
 import com.femcoders.monster_shop.models.Review;
 import com.femcoders.monster_shop.repositories.ReviewRepository;
@@ -17,24 +18,19 @@ public class ReviewService {
         this.reviewRepository = reviewRepository;
     }
 
-    public Review addReview(Review newReview) {
+    public Review addReview(ReviewRequest newReview) {
+        Long productId = newReview.productId();
+        // usar func findbyid de product con este id productId
+        // convertir dto a entidad usando funcion que hemos hecho en mapper (llamar mapper.funccion) para cambiar tipo entidad ahora en formato dto, recoger en variable tipo Review y usar este variable para el siguiente paso
+        // añadir este producto al review que se va a crear
+
         return reviewRepository.save(newReview);
     }
 
-//    public boolean showReviewsByProductId(Long productId) {
-//        List <Review> reviews = reviewRepository.findByProductId(productId);
-//        boolean reviewExists;
-//        if (!reviews.isEmpty()) {
-//            return reviewExists = false;
-//        }
-//        return true;
-//    }
-
-    public Optional <List<Review>> getReviewsByProductId(Long productId) {
-        System.out.println("inside service before asignation");
-        Optional<List<Review>> optionalReview = reviewRepository.findByProductId(productId);
-        System.out.println("inside service after asignation before return");
-        return optionalReview;
+    public List<Review> getReviewsByProductId(Long productId) {
+        List<Review> reviews = reviewRepository.findAllByProductId(productId);
+        System.out.println("Pulled from repo: " + reviews.size()); // test
+        return reviews;
     }
 
 }
